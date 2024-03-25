@@ -12,8 +12,8 @@ const quizAnswers =
     ['150', 'Take 60 and times it by 2.5 to get your answer.'], // q4
     ['hexagon', 'THe hexagon has 6 sides, a square has 4 and a triangle has 3.'], // q5
     ['2/3', 'Converting the fraction to a decimal will outline the answer for you. (1/2 = 0.5, 3/5 = 0.6 and 2/3 = 0.66..7)'], // q6
-    ['90', 'Take 90 and times it by 1.5 (as 30 minutes is 0.5 hours) to get your answer.'], // q7
-    ['', ''], // q8
+    ['90 miles', 'Take 90 and times it by 1.5 (as 30 minutes is 0.5 hours) to get your answer.'], // q7
+    ['6', 'Jake, Alan, Ryan, Jared, Bart and Larry all received one email.'], // q8
     ['y', 'These are the first letter of each type of time, making Y the correct answer. (Milliseconds, Seconds, Minutes, Hours, Days, Months, Weeks and Years).'], // q9
     ['c', 'Letters are alternating between going down and going up the alphabet.\nA  B  C\n  Z  Y  X'], // q10
 ];
@@ -25,8 +25,16 @@ function SetupList()
     {
         quizAnswerList.push(document.getElementById('quiz-a' + (x + 1))); // x + 1 to reach the current answer id since index = answer id - 1.
         quizQuestionsAnswered.push(false); // Just disables the submit button if it is already answered.
-        console.log('document.getElementById(\'quiz-a' + (x + 1) + '\') is NULL?: ' + (document.getElementById('quiz-a' + (x + 1)) == null).toString());
-        console.log('quizAnswerList[x] is NULL: ' + (quizAnswerList[x] == null).toString());
+
+        // Refresh the answered questions.
+        if (quizAnswerList[x].children.length != 0)
+        {
+            quizAnswerList[x].value = quizAnswerList[x].options[0].text.toLowerCase();
+        }
+        else
+        {
+            quizAnswerList[x].value = "";
+        }
     }
 }
 
@@ -52,8 +60,8 @@ function CheckAnswer(qNum_, qAns_) // Checks to see if the answer is correct. If
     let isCorrect_ = false;
 
     // -- Variable Setting --
-    isCorrect_ = (ans_ == quizAnswers[qNum_ - 1][0]) ? true : false; // Single line ver. of if checking and setting if isCorrect is true or not.
-    explanation_ = (isCorrect_ == true) ? 'Correct!\n' + quizAnswers[qNum_ - 1][1] : 'Incorrect!\nThe correct answer is: ' + quizAnswers[qNum - 1][0] + "\nWhy?: " + quizAnswers[qNum_ - 1][1];
+    isCorrect_ = (ans_.toLowerCase() == quizAnswers[qNum_ - 1][0]) ? true : false; // Single line ver. of if checking and setting if isCorrect is true or not.
+    explanation_ = (isCorrect_ == true) ? 'Correct!\n' + quizAnswers[qNum_ - 1][1] : 'Incorrect!\nThe correct answer is: ' + quizAnswers[qNum_ - 1][0] + "\nWhy?: " + quizAnswers[qNum_ - 1][1];
     quizScore += (isCorrect_ == true) ? 10 : 0;
     
     // -- LOGGING --
@@ -61,9 +69,37 @@ function CheckAnswer(qNum_, qAns_) // Checks to see if the answer is correct. If
     alert(explanation_); // Temporary, I plan on removing the submit button and replacing it with this text.
     // Update the Score After
     UpdateScore();
+    if (quizScore == 100)
+    {
+        SendCongrats();
+    }
+    else if (!quizQuestionsAnswered.includes(false))
+    {
+        if (quizScore == 0)
+        {
+            SendOops();
+        }
+        else
+        {
+            SendAlright();
+        }
+    }
 }
 
 function UpdateScore()
 {
     document.getElementById('quiz-score').innerHTML = quizScore.toString();
+}
+
+function SendCongrats()
+{
+    alert('Congrats! You got 100%!');
+}
+function SendAlright()
+{
+    alert('Alright! Not bad, you got a score of: ' + quizScore);
+}
+function SendOops()
+{
+    alert('Oops! Seems like you didn\'t get any question correct. Better luck next time.');
 }
