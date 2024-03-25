@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ryan Pearce - Assignment #</title>
+        <title>Ryan Pearce - Assignment #3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="Main.css">
     </head>
 
     <body>
-        
+        <header>
+            <h1>QUIZ TITLE!</h1>
+        </header>
+
+        <nav>
+            <h1 class="quiz-score" id="quiz-score"></h1>
+        </nav>
+
+        <main>
+            <b class="quiz-warning"><u>NOTE: Don't add in punctuation on any text based answers. For example: '9' instead of '9.'</u></b>
+
+            <div class="quiz-div" id="quiz-q1">                
+                <h2>Question #1</h2>
+                <em class="quiz-question"><u>What number comes next in this sequence</u>: 2, 4, 6, 8, __</em>
+                <select class="quiz-answer-input" id="quiz-a1">
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(1)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q2">
+                <h2>Question #2</h2>
+                <em class="quiz-question"><u>Which word is the opposite of 'cold'?</u>:</em>
+                <select class="quiz-answer-input" id="quiz-a2">
+                    <option value="hot">Hot</option>
+                    <option value="cool">Cool</option>
+                    <option value="mild">Mild</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(2)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q3">        
+                <h2>Question #3</h2>
+                <em class="quiz-question"><u>Shoe is to foot as glove is to</u>:</em>
+                <select class="quiz-answer-input" id="quiz-a3">
+                    <option value="hand">Hand</option>
+                    <option value="head">Head</option>
+                    <option value="leg">Leg</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(3)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q4">
+                <h2>Question #4</h2>
+                <em class="quiz-question"><u>If a train leaves the station and travels at 60 miles per hour, how far will it have traveled after 2.5 hours in miles? (Answer only with the number)</u>:</em>
+                <input class="quiz-answer-input" id="quiz-a4" type="text" placeholder="Insert answer here...">
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(4)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q5">
+                <h2>Question #5</h2>
+                <em class="quiz-question"><u>Which of these shapes has the most sides?</u>:</em>
+                <select class="quiz-answer-input" id="quiz-a5">
+                    <option value="triangle">Triangle</option>
+                    <option value="square">Square</option>
+                    <option value="hexagon">Hexagon</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(5)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q6">
+                <h2>Question #6</h2>
+                <em class="quiz-question"><u>Which of the following fractions is the largest?</u>:</em>
+                <select class="quiz-answer-input" id="quiz-a6">
+                    <option value="2/3">2/3</option>
+                    <option value="1/2">1/2</option>
+                    <option value="3/5">3/5</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(6)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q7">
+                <h2>Question #7</h2>
+                <em class="quiz-question"><u>If a car travels at 60mph for 1 hour and 30 minutes, how far will it have traveled?</u>:</em>
+                <select class="quiz-answer-input" id="quiz-a7">
+                    <option value="60">60 Miles</option>
+                    <option value="90">90 Miles</option>
+                    <option value="120">120 Miles</option>
+                </select>
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(7)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q8">
+                <h2>Question #8</h2>
+                <em class="quiz-question"><u></u>:</em>
+                <input class="quiz-answer-input" id="quiz-a8" type="text" placeholder="Insert answer here...">
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(8)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q9">
+                <h2>Question #9</h2>
+                <em class="quiz-question"><u>Complete this sequence</u>: M, S, M, H, D, W, M, _</em>
+                <input class="quiz-answer-input" id="quiz-a9" type="text" placeholder="Insert answer here...">
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(9)">Submit!</button>
+            </div>
+            
+            <div class="quiz-div" id="quiz-q10">
+                <h2>Question #10</h2>
+                <em class="quiz-question"><u>What is the next letter in the sequence</u>: A, Z, B, Y, ___</em>
+                <input class="quiz-answer-input" id="quiz-a10" type="text" placeholder="Insert answer here...">
+                <button class="quiz-submit" type="submit" onclick="SubmitAnswer(10)">Submit!</button>
+            </div>
+        </main>
     <script type="text/javascript" src="Main.js"></script>
     </body>
 </html>
